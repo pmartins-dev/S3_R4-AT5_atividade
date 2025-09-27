@@ -1,5 +1,6 @@
 const express = require('express');
 const fs = require('fs');
+const { isTypedArray } = require('util/types');
 const app = express();
 const PORT = 8080;
 const CAMINHO_ARQUIVO = "./livros.json";
@@ -8,17 +9,47 @@ app.use(express.json()); // Middleware para interpretar JSON no corpo da requisi
 
 if (!fs.existsSync(CAMINHO_ARQUIVO)) {
 
-    fs.writeFileSync(CAMINHO_ARQUIVO,"[]");
-    
+    fs.writeFileSync(CAMINHO_ARQUIVO, "[]");
+
 }
 
-app.post("/livros", (req, res)=>{
+app.get("/livros", (req, res) => {
 
     try {
-        const {nome, autor, preco} = req.body;
+        // Lendo o arquivo JSON
+        const data = fs.readFileSync('./livros.json', 'utf-8');
 
-        if (nome == "" || nome == undefined || preco == undefined || isNaN(preco) || autor == "" || autor == undefined) {
-            return res.status(400).json({message: "Campos obrigatorios não preenchidos!"})
+        // Transformando o JSON em objeto JS
+        let livros = JSON.parse(data);
+
+        const { tituloDoLivro } = req.query;
+
+        if (tituloDoLivro) {
+            // filter vai manter somente os produtos que se atender a condição
+            livros = livros.filter(livro =>
+                livro.tituloDoLivro.toLowerCase() // converte para minusculo 
+                    .includes(tituloDoLivro.toLowerCase()))
+        }
+
+        res.status(200).json(livros);
+
+
+
+    } catch (error) {
+        console.error('Erro ao ler arquivo JSON', error);
+        res.status(500).json({ message: 'Erro interno no servidor' });
+
+    }
+
+});
+
+app.post("/livros", (req, res) => {
+
+    try {
+        const { tituloDoLivro, autor, anoDaPublicacao, qtdDisponival } = req.body;
+
+        if (tituloDoLivro == "" || tituloDoLivro == undefined || autor == "" || autor == undefined || anoDaPublicacao == undefined || isNaN(anoDaPublicacao) || qtdDisponival == undefined || isNaN(qtdDisponival)) {
+            return res.status(400).json({ message: "Campos obrigatorios não preenchidos!" })
         }
 
         const data = fs.readFileSync(CAMINHO_ARQUIVO, "utf-8");
@@ -26,9 +57,10 @@ app.post("/livros", (req, res)=>{
 
         const novoLivro = {
             id: livros.length + 1,
-            nome,
-            preco,
-            autor
+            tituloDoLivro,
+            autor,
+            anoDaPublicacao,
+            qtdDisponival
         }
 
         livros.push(novoLivro);
@@ -41,15 +73,15 @@ app.post("/livros", (req, res)=>{
         });
 
     } catch (error) {
-        
+
         console.error(`Erro ao cadastrar produto ${error}`);
-        res.status(500).json({message: `Erro interno no servidor`});
+        res.status(500).json({ message: `Erro interno no servidor` });
 
     }
 
 });
 
-app.listen(PORT, ()=>{
+app.listen(PORT, () => {
 
     console.log(`Servidor rodando na porta ${PORT}`);
 

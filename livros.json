@@ -1,26 +1,30 @@
 [
     {
         "id": 1,
-        "nome": "Entendendo Algoritmos",
-        "preco": 54,
-        "autor": "Aditya Y. Bhargava"
+        "tituloDoLivro": "O Programador Pragmático",
+        "autor": "Andrew Hunt",
+        "anoDaPublicacao": 2010,
+        "qtdDisponival": 304
     },
     {
         "id": 2,
-        "nome": "Código Limpo",
-        "preco": 75,
-        "autor": "Robert C. Martin"
+        "tituloDoLivro": "Entendendo Algoritmos",
+        "autor": "Aditya Y. Bhargava",
+        "anoDaPublicacao": 2017,
+        "qtdDisponival": 243
     },
     {
         "id": 3,
-        "nome": "Arquitetura Limpa",
-        "preco": 78.99,
-        "autor": "Robert C. Martin"
+        "tituloDoLivro": "Código Limpo",
+        "autor": "Robert C. Martin",
+        "anoDaPublicacao": 2009,
+        "qtdDisponival": 129
     },
     {
         "id": 4,
-        "nome": "O Programador Pragmático",
-        "preco": 175.8,
-        "autor": "Andrew Hunt"
+        "tituloDoLivro": "Arquitetura Limpa",
+        "autor": "Robert C. Martin",
+        "anoDaPublicacao": 2019,
+        "qtdDisponival": 329
     }
 ]
