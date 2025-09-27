@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "nome": "Entendendo Algoritmos",
+        "preco": 54,
+        "autor": "Aditya Y. Bhargava"
+    },
+    {
+        "id": 2,
+        "nome": "Código Limpo",
+        "preco": 75,
+        "autor": "Robert C. Martin"
+    },
+    {
+        "id": 3,
+        "nome": "Arquitetura Limpa",
+        "preco": 78.99,
+        "autor": "Robert C. Martin"
+    },
+    {
+        "id": 4,
+        "nome": "O Programador Pragmático",
+        "preco": 175.8,
+        "autor": "Andrew Hunt"
+    }
+]
