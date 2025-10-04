@@ -4,27 +4,41 @@
         "tituloDoLivro": "O Programador Pragmático",
         "autor": "Andrew Hunt",
         "anoDaPublicacao": 2010,
-        "qtdDisponival": 304
+        "qtdDisponivel": 304
     },
     {
         "id": 2,
         "tituloDoLivro": "Entendendo Algoritmos",
         "autor": "Aditya Y. Bhargava",
         "anoDaPublicacao": 2017,
-        "qtdDisponival": 243
+        "qtdDisponivel": 243
     },
     {
         "id": 3,
         "tituloDoLivro": "Código Limpo",
         "autor": "Robert C. Martin",
         "anoDaPublicacao": 2009,
-        "qtdDisponival": 129
+        "qtdDisponivel": 129
     },
     {
         "id": 4,
         "tituloDoLivro": "Arquitetura Limpa",
         "autor": "Robert C. Martin",
         "anoDaPublicacao": 2019,
-        "qtdDisponival": 329
+        "qtdDisponivel": 329
+    },
+    {
+        "id": 5,
+        "tituloDoLivro": "Lógica de Programação e Algoritmos com Javascript",
+        "autor": "Edécio Fernando Iepsen",
+        "anoDaPublicacao": 2022,
+        "qtdDisponivel": 80
+    },
+    {
+        "id": 6,
+        "tituloDoLivro": "Jogos com Scratch",
+        "autor": "Carlos Emilio Padilla Severo",
+        "anoDaPublicacao": 2021,
+        "qtdDisponivel": 392
     }
 ]

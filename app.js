@@ -1,6 +1,5 @@
 const express = require('express');
 const fs = require('fs');
-const { isTypedArray } = require('util/types');
 const app = express();
 const PORT = 8080;
 const CAMINHO_ARQUIVO = "./livros.json";
@@ -46,9 +45,9 @@ app.get("/livros", (req, res) => {
 app.post("/livros", (req, res) => {
 
     try {
-        const { tituloDoLivro, autor, anoDaPublicacao, qtdDisponival } = req.body;
+        const { tituloDoLivro, autor, anoDaPublicacao, qtdDisponivel } = req.body;
 
-        if (tituloDoLivro == "" || tituloDoLivro == undefined || autor == "" || autor == undefined || anoDaPublicacao == undefined || isNaN(anoDaPublicacao) || qtdDisponival == undefined || isNaN(qtdDisponival)) {
+        if (tituloDoLivro == "" || tituloDoLivro == undefined || autor == "" || autor == undefined || anoDaPublicacao == undefined || isNaN(anoDaPublicacao) || qtdDisponivel == undefined || isNaN(qtdDisponivel)) {
             return res.status(400).json({ message: "Campos obrigatorios não preenchidos!" })
         }
 
@@ -60,7 +59,7 @@ app.post("/livros", (req, res) => {
             tituloDoLivro,
             autor,
             anoDaPublicacao,
-            qtdDisponival
+            qtdDisponivel
         }
 
         livros.push(novoLivro);
@@ -83,6 +82,6 @@ app.post("/livros", (req, res) => {
 
 app.listen(PORT, () => {
 
-    console.log(`Servidor rodando na porta ${PORT}`);
+    console.log(`Servidor rodando na porta http://localhost:${PORT}`);
 
 });
