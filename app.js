@@ -47,13 +47,15 @@ app.post("/livros", (req, res) => {
     try {
         const { tituloDoLivro, autor, anoDaPublicacao, qtdDisponivel } = req.body;
 
+        //Verificando se todos os dados foram enviados
         if (tituloDoLivro == "" || tituloDoLivro == undefined || autor == "" || autor == undefined || anoDaPublicacao == undefined || isNaN(anoDaPublicacao) || qtdDisponivel == undefined || isNaN(qtdDisponivel)) {
             return res.status(400).json({ message: "Campos obrigatorios não preenchidos!" })
         }
 
         const data = fs.readFileSync(CAMINHO_ARQUIVO, "utf-8");
         const livros = JSON.parse(data);
-
+        
+        //Cria um novo livro
         const novoLivro = {
             id: livros.length + 1,
             tituloDoLivro,
