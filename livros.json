@@ -40,6 +40,12 @@
         "autor": "Carlos Emilio Padilla Severo",
         "anoDaPublicacao": 2021,
         "qtdDisponivel": 392
+    },
+    {
+        "id": 7,
+        "tituloDoLivro": "teste",
+        "autor": "test",
+        "anoDaPublicacao": 2021,
+        "qtdDisponivel": 392
     }
-    
 ]
